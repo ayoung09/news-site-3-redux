@@ -7,10 +7,11 @@ class ArticleList extends Component {
       (article, index) => {
         return (
           <ArticleTeaser 
+            key={index}
             handleTitleClick={this.props.handleTitleClick}
             title={article.title}
             created_date={article.created_date}
-            id={index}/>
+            id={article.id}/>
         )
       }
     )

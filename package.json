@@ -20,9 +20,11 @@
     "react": "^15.5.4",
     "react-bootstrap": "^0.30.8",
     "react-dom": "^15.5.4",
+    "react-redux": "^5.0.6",
     "react-router-dom": "^4.1.1",
     "react-test-renderer": "^15.5.4",
     "react-test-utils": "0.0.1",
+    "redux": "^3.7.2",
     "serve-favicon": "^2.0.1",
     "sinon": "^2.1.0",
     "strong-error-handler": "^2.0.0"
