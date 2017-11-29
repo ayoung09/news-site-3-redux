@@ -9,7 +9,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchArticles: () => dispatch(fetchAllArticles()),
+  fetchAllArticles: () => dispatch(fetchAllArticles()),
 });
 
 class HomePage extends Component {
@@ -21,7 +21,7 @@ class HomePage extends Component {
   render() {
     return (
       <div>
-        <ArticleList articles={this.state.allArticles} 
+        <ArticleList articles={this.props.allArticles} 
           handleTitleClick={(articleID) => this.props.history.push(`/article/${articleID}`) } />
       </div>
     );
