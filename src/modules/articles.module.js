@@ -3,6 +3,7 @@ import ArticlesAPI from '../api/ArticlesAPI';
 //ACTION TYPES
 const SET_ALL_ARTICLES = 'SET_ALL_ARTICLES';
 const SET_CURRENT_ARTICLE = 'SET_CURRENT_ARTICLE';
+//error handling not necessary for solution
 const SET_ERROR = 'SET_ERROR';
 
 
@@ -17,6 +18,7 @@ const setCurrentArticle = (article) => ({
   article,
 });
 
+//error handling not necessary for solution
 const setError = (error) => ({
   type: SET_ERROR,
   error,
@@ -28,9 +30,9 @@ export const fetchAllArticles = () => {
   return (dispatch) => {
     ArticlesAPI.fetchArticles()
       .then(articlesJson => {
-        console.log('in dot then: ', articlesJson);
         dispatch(setAllArticles(articlesJson));
       })
+      //error handling not necessary for solution
       .catch(error => {
         dispatch(setError(error));
       })
@@ -43,6 +45,7 @@ export const fetchCurrentArticle = (articleID) => {
       .then(articleJson => {
         dispatch(setCurrentArticle(articleJson));
       })
+      //error handling not necessary for solution
       .catch(error => {
         dispatch(setError(error));
       })
@@ -54,6 +57,7 @@ export const fetchCurrentArticle = (articleID) => {
 const initialState = {
   allArticles: [],
   currentArticle: {},
+  //error handling not necessary for solution
   error: null,
 };
 
@@ -64,14 +68,12 @@ const reducer = (prevState = initialState, action) => {
 
   switch (action.type) {
     case SET_ALL_ARTICLES:
-      console.log('in reducer');
       newState.allArticles = action.articles;
-      newState.error = null;
       return newState;
     case SET_CURRENT_ARTICLE:
       newState.currentArticle = action.article;
-      newState.error = null;
       return newState;
+    //error handling not necessary for solution
     case SET_ERROR:
       newState.error = action.error;
       return newState;
