@@ -1,29 +1,31 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import ArticleList from '../components/ArticleList/ArticleList.js';
 import ArticlesAPI from '../api/ArticlesAPI';
+import { fetchAllArticles } from '../modules/articles.module';
+
+const mapStateToProps = state => ({
+  allArticles: state.allArticles,
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetchArticles: () => dispatch(fetchAllArticles()),
+});
 
 class HomePage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      articles:[]
-    }
-  }
+
   componentDidMount() {
-      ArticlesAPI.fetchArticles().then((json) => {
-        this.setState({
-          articles: json
-        })
-      })
+    this.props.fetchAllArticles();
   }
+
   render() {
     return (
       <div>
-        <ArticleList articles={this.state.articles} 
+        <ArticleList articles={this.state.allArticles} 
           handleTitleClick={(articleID) => this.props.history.push(`/article/${articleID}`) } />
       </div>
     );
   }
 }
 
-export default HomePage;
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

@@ -1,9 +1,7 @@
 import ArticlesAPI from '../api/ArticlesAPI';
 
 //ACTION TYPES
-const FETCH_ALL_ARTICLES = 'FETCH_ALL_ARTICLES';
 const SET_ALL_ARTICLES = 'SET_ALL_ARTICLES';
-const FETCH_CURRENT_ARTICLE = 'FETCH_CURRENT_ARTICLE';
 const SET_CURRENT_ARTICLE = 'SET_CURRENT_ARTICLE';
 const SET_ERROR = 'SET_ERROR';
 
@@ -30,6 +28,7 @@ export const fetchAllArticles = () => {
   return (dispatch) => {
     ArticlesAPI.fetchArticles()
       .then(articlesJson => {
+        console.log('in dot then: ', articlesJson);
         dispatch(setAllArticles(articlesJson));
       })
       .catch(error => {
@@ -65,6 +64,7 @@ const reducer = (prevState = initialState, action) => {
 
   switch (action.type) {
     case SET_ALL_ARTICLES:
+      console.log('in reducer');
       newState.allArticles = action.articles;
       newState.error = null;
       return newState;
