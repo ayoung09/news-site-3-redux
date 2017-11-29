@@ -6,7 +6,8 @@ class ArticleList extends Component {
     const stories= this.props.articles.map(
       (article, index) => {
         return (
-          <ArticleTeaser 
+          <ArticleTeaser
+            key={index} 
             handleTitleClick={this.props.handleTitleClick}
             title={article.title}
             created_date={article.created_date}
