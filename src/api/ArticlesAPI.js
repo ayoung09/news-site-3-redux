@@ -1,5 +1,4 @@
-const fetchArticleByID = (articleIndex) => {
-  const articleID = +articleIndex + 1;
+const fetchArticleByID = (articleID) => {
   return fetch(`http://localhost:3001/api/articles/${articleID}`)
   .then(function(response) {
     return response.json();

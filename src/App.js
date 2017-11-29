@@ -10,13 +10,13 @@ class App extends Component {
     return (
         <Router>
           <div>
-            
             <AppNav handleNavClick={(clickedItem) => console.log(clickedItem)} />
             <br/>
             <hr/>
-            <Route exact path="/" component={HomePage}/>
-            <Route exact path="/article/:articleId" component={ArticlePage}/>
-
+            <div className="App-body">
+              <Route exact path="/" component={HomePage}/>
+              <Route exact path="/article/:articleID" component={ArticlePage}/>
+            </div>
           </div>
         </Router>
     );

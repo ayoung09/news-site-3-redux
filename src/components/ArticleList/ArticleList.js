@@ -10,7 +10,7 @@ class ArticleList extends Component {
             handleTitleClick={this.props.handleTitleClick}
             title={article.title}
             created_date={article.created_date}
-            id={index}/>
+            id={article.id}/>
         )
       }
     )
